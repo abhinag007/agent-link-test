@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TravelBot AI - Travel Agent Frontend
+
+A modern, beautiful AI-powered travel assistant built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+### 🤖 Intelligent Chat Interface
+- Real-time conversational AI travel assistant
+- Context-aware responses based on user queries
+- Smart suggestion chips for quick interactions
+- Typing indicators for better UX
+
+### 🎨 Modern UI/UX
+- Beautiful gradient design with blue and purple theme
+- Responsive layout that works on all devices
+- Smooth animations and transitions
+- Clean, intuitive interface
+
+### ✈️ Travel-Specific Features
+- **Quick Actions Sidebar**: One-click access to common travel queries
+  - Beach vacations
+  - City tours
+  - Adventure trips
+  - Budget travel options
+
+- **Popular Destinations**: Quick view of trending destinations with pricing
+- **Travel Tips**: Helpful advice for travelers
+- **24/7 Support Indicator**: Always available assistance
+
+### 💬 Chat Features
+- Message history with timestamps
+- User and bot message differentiation
+- Contextual suggestion buttons
+- Smooth auto-scrolling to latest messages
+
+## Tech Stack
+
+- **Framework**: Next.js 16.1.1 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Fonts**: Geist Sans & Geist Mono
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
 
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd agent-link-test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+agent-link-test/
+├── app/
+│   ├── page.tsx          # Main chat interface component
+│   ├── layout.tsx        # Root layout with metadata
+│   └── globals.css       # Global styles and Tailwind imports
+├── public/               # Static assets
+├── package.json          # Dependencies and scripts
+└── tsconfig.json         # TypeScript configuration
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Main Chat Interface (`app/page.tsx`)
+- **Message State Management**: Handles chat messages with TypeScript interfaces
+- **Bot Response Logic**: Context-aware responses based on user input
+- **Suggestion System**: Dynamic suggestion chips based on conversation context
+- **Responsive Design**: Sidebar hidden on mobile, visible on desktop
 
-## Deploy on Vercel
+### Features Breakdown
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Sidebar (Desktop Only)
+- **Quick Actions**: Pre-defined travel queries
+- **Popular Destinations**: Trending locations with pricing
+- **Travel Tips**: Helpful travel advice
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Chat Area
+- **Header**: Shows bot status and support availability
+- **Messages**: Scrollable message history
+- **Input**: Text input with send button
+
+## Customization
+
+### Adding New Bot Responses
+Edit the `getBotResponse()` function in `app/page.tsx`:
+
+```typescript
+const getBotResponse = (userText: string): string => {
+  // Add your custom logic here
+  if (userText.includes('your-keyword')) {
+    return "Your custom response";
+  }
+  // ...
+}
+```
+
+### Modifying Suggestions
+Edit the `getContextualSuggestions()` function:
+
+```typescript
+const getContextualSuggestions = (userText: string): string[] => {
+  // Return array of suggestion strings
+  return ['Suggestion 1', 'Suggestion 2'];
+}
+```
+
+### Styling
+The project uses Tailwind CSS. Modify classes directly in the JSX or update `globals.css` for global styles.
+
+## Future Enhancements
+
+- [ ] Integration with real AI backend (OpenAI, Anthropic, etc.)
+- [ ] Real-time flight and hotel search
+- [ ] User authentication and saved trips
+- [ ] Booking functionality
+- [ ] Multi-language support
+- [ ] Voice input/output
+- [ ] Image generation for destinations
+- [ ] Calendar integration
+- [ ] Price alerts and notifications
+
+## Development
+
+### Build for Production
+```bash
+npm run build
+npm start
+```
+
+### Linting
+```bash
+npm run lint
+```
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Support
+
+For support, email your-email@example.com or open an issue in the repository.
+
+---
+
+Built with ❤️ using Next.js and Tailwind CSS
